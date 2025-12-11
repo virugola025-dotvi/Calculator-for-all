@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator</title>
+
+<style>
+  body{
+    background: #f5f5f5;
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .card{
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 300px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  input{
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  button{
+    width: 140px;
+  height: 40px;
+  margin: 8px;
+
+  background: #f1f3f4;
+  border: none;
+  border-radius: 12px;
+
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: all 0.15s ease
+  }
+
+  button:hover{
+    transform: scale(0.97);
+  }
+
+  #result{
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>BMI Calculator</h2>
+
+  <input type="number" id="weight" placeholder="Weight (kg)">
+  <input type="number" id="height" placeholder="Height (cm)">
+  
+  <button onclick="calculateBMI()">Calculate</button>
+   <button onclick="n()" id="n">more</button>
+
+  <div id="result"></div>
+</div>
+
+<script>
+  function calculateBMI(){
+    let weight = parseFloat(document.getElementById("weight").value);
+    let height = parseFloat(document.getElementById("height").value) / 100;
+
+    if(!weight || !height){
+      document.getElementById("result").textContent = "Please enter both values.";
+      return;
+    }
+
+    let bmi = (weight / (height * height)).toFixed(1);
+
+    let category = "";
+    if(bmi < 18.5) category = "Underweight";
+    else if(bmi < 24.9) category = "Normal";
+    else if(bmi < 29.9) category = "Overweight";
+    else category = "Obese";
+
+    document.getElementById("result").textContent = `BMI: ${bmi} (${category})`;
+  }
+  function n(){
+    window.location.href = "n.html";
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Calculator</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+  <input id="display" disabled>
+  <br>
+  <button onclick="append('1')">1</button>
+  <button onclick="append('2')">2</button>
+  
+  <button onclick="append('3')">3</button>
+  <br>
+  <button onclick="append('4')">4</button>
+  <button onclick="append('5')">5</button>
+  <button onclick="append('6')">6</button>
+  <br>
+  <button onclick="append('7')">7</button>
+  <button onclick="append('8')">8</button>
+  <button onclick="append('9')">9</button>
+  <br>
+  <button onclick="append('+')">+</button>
+  <button onclick="cal()">=</button>
+  <button onclick="c()">C</button>
+  <br>
+  <button onclick="append('-')">-</button>
+  <button onclick="append('/')">/</button>
+  <button onclick="append('0')">0</button>
+  <br>
+  <button onclick="append('*')">×</button>
+  <button onclick="backspace()">back</button>
+  <button onclick="append('.')">.</button>
+  
+  </div>
+  <div class="box">
+  <button onclick="ne()" id="ne">more</button>
+  </div>
+  <script>
+    function append(value){
+      let display =
+      document.getElementById("display").value += value;
+      
+      
+      
+      
+    }
+    function cal(){
+        let e =
+        document.getElementById("display").value;
+       document.getElementById("display").value = eval(e);
+      }
+      function backspace() {
+  let display = document.getElementById("display");
+  display.value = display.value.slice(0, -1);
+}
+      function c(){
+        let display = 
+        document.getElementById("display").value = "";
+
+      }
+      function ne(){
+        window.location.href =
+        "new.html";
+      }
+  </script>
+</body>
+</html>
